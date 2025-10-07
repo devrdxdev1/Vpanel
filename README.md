@@ -22,4 +22,6 @@ pip3 install flask_login
 pip3 install docker
 
 pip3 install paramiko
+
+pip3 install dotenv
 ```
