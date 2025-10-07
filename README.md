@@ -24,4 +24,6 @@ pip3 install docker
 pip3 install paramiko
 
 pip3 install dotenv
+
+pip3 install psutil
 ```
