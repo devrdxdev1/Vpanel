@@ -18,4 +18,6 @@ pip3 install flask
 pip3 install flask-socketio
 
 pip3 install flask_login
+
+pip3 install docker
 ```
