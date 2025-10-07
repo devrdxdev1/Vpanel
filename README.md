@@ -12,4 +12,6 @@ sudo apt install python3-pip -y
 pip install -r requirements.txt
 
 python3 hvm.py
+
+pip3 install flask
 ```
