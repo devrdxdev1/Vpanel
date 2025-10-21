@@ -1,29 +1,27 @@
-# Use an official Python base image
-FROM python:3.10-slim
+FROM python:3.10‑slim
 
-# Install SQLite dev libraries (if you use sqlite3)
-RUN apt-get update && apt-get install -y \
-        libsqlite3-dev \
-    && rm -rf /var/lib/apt/lists/*
+# Install required system libraries (especially for sqlite3 if used)
+RUN apt‑get update && apt‑get install ‑y \
+      libsqlite3‑dev build‑essential \
+    && rm ‑rf /var/lib/apt/lists/*
 
 # Set environment variables for Python
-ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
 
-# Set working directory
 WORKDIR /app
 
-# Copy the requirements file
+# Copy requirements file
 COPY requirements.txt /app/
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy project files
+# Copy rest of the code
 COPY . /app/
 
-# Expose port (update if your app uses a different port)
+# Expose the port your app uses (replace if not 8000)
 EXPOSE 3000
 
-# Command to run the app (update if your entry point is different)
-CMD ["python", "hvm.py"]
+# Command to run your application (replace app.py with your main file)
+CMD ["python", "app.py"]
