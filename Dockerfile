@@ -1,28 +1,29 @@
-# Use a Python base image
+# Use an official Python base image
 FROM python:3.10-slim
 
-# Install system dependencies for sqlite3 support
+# Install SQLite dev libraries (if you use sqlite3)
 RUN apt-get update && apt-get install -y \
-    libsqlite3-dev \
+        libsqlite3-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Set environment variables to avoid Python output buffering
-ENV PYTHONUNBUFFERED 1
+# Set environment variables for Python
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
-# Set the working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Copy the requirements file and install dependencies
+# Copy the requirements file
 COPY requirements.txt /app/
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application files
+# Copy project files
 COPY . /app/
 
-# Expose the port that the application will run on (e.g., port 8000 for Django/Flask)
+# Expose port (update if your app uses a different port)
 EXPOSE 3000
 
-# Command to run the application (replace with your actual entry point)
-CMD ["python", "hvm.py"]  # Or any other command based on your entry point
+# Command to run the app (update if your entry point is different)
+CMD ["python", "hvm.py"]
