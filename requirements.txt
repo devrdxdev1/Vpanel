@@ -11,3 +11,4 @@ gevent==22.10.2
 gevent-websocket==0.10.1
 Werkzeug==3.0.1
 uuid
+Flask-Limiter
