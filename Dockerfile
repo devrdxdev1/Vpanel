@@ -19,7 +19,7 @@ RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose Render's default dynamic port
-EXPOSE 3000
+EXPOSE 10000
 
 # Start the app (Render sets the $PORT environment variable automatically)
 CMD ["python3", "hvm.py"]
