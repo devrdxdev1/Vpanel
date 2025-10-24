@@ -1,4 +1,4 @@
-FROM python:3.10‑slim
+FROM python:3.11‑slim
 
 # Install required system libraries (especially for sqlite3 if used)
 RUN apt‑get update && apt‑get install ‑y \
@@ -24,4 +24,4 @@ COPY . /app/
 EXPOSE 3000
 
 # Command to run your application (replace app.py with your main file)
-CMD ["python", "app.py"]
+CMD ["python", "hvm.py"]
